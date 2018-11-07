@@ -1,3 +1,4 @@
+"use strict"
 var createError = require('http-errors');
 var express = require('express');
 var router = express.Router();
@@ -18,6 +19,8 @@ var safe = require('safe-regex');
 
 
 
+
+
 require('./config/config');
 
 var indexRouter = require('./routes/index');
@@ -26,8 +29,13 @@ var adminRouter = require('./routes/admin');
 
 var app = express();
 
+
 // view engine setup
+app.use(compression());
 app.set('views', path.join(__dirname, 'views'));
+app.use(compression());
+app.use(express.static(__dirname + '/public'));
+
 app.set('view engine', 'ejs');
 app.use(helmet());
 app.use(helmet.xssFilter({ setOnOldIE: true }));
@@ -48,6 +56,16 @@ app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res);
   next();
 });
+
+
+app.get("/manifest.json", (req, res)=>{
+  res.header("Content-Type", "text/cache-manifest");
+  res.sendFile(path.join(__dirname, "manifest.json"));
+});
+
+
+
+
 app.use(session({
   secret:"total jdijn  54u892n JNGRNOHNHSu895tnwuj88*8ytg6FG6GB989hqg2g3729nw9wns",
   resave:false,
@@ -69,9 +87,9 @@ app.use(validator({
     value:value
   }  
   }
-}));  
-app.use(compression());
-app.use(express.static(path.join(__dirname, 'public')));
+}));
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -85,8 +103,8 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.message = "404 not found";
+  res.locals.error = " ";
 
   // render the error page
   res.status(err.status || 500);
