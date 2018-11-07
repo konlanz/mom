@@ -18,10 +18,6 @@ var Orders = require('../schema/orders');
 var Products = require('../schema/products');
 var Userz = require('../schema/user');
 
-var date = new Date();
-var dete = date.getDate();
-var month = date.getMonth()+1;
-var year = date.getFullYear();
 
 
 router.get('/', (req, res , next)=>{
@@ -63,8 +59,13 @@ router.get('/panel/userz', secur, (req, res )=>{
 })
 
 router.get('/orders',  secur, (req, res )=>{
-    var query = Orders.find({Month:month});
-    query.sort({Date:-1}).exec((err, db)=>{
+    var date = new Date();
+    var dete = date.getDate();
+    var month = date.getMonth()+1;
+    var year = date.getFullYear();
+
+    var query = Orders.find({Month:month, Year:year});
+    query.sort({_id:-1}).exec((err, db)=>{
         if(err) throw err;
         res.render('orders',{data:db});
     });
@@ -81,7 +82,12 @@ router.post('/delete_product',  secur, (req, res)=>{
     })
 })
 router.get('/panel', secur,  (req, res, next)=>{
-    Orders.find({Date:dete}, (err, result)=>{
+    var date = new Date();
+    var dete = date.getDate();
+    var month = date.getMonth()+1;
+    var year = date.getFullYear();
+
+    Orders.find({Date:dete, Month:month}, (err, result)=>{
         if(err){
             res.redirect('/');
         }
@@ -143,23 +149,18 @@ router.post('/add_admin', secur, (req, res)=>{
     var email = req.body.email;
     var password = req.body.password;
     var passenc = crypto.createHash('md5').update(password).digest('hex');
+    console.log(passenc);
     var adde ={
         name:name,
         email:email,
         username:username,
         password:passenc
     } 
+    console.log(adde);
     new Admin(adde).save();
     res.redirect('/admin');
 
 });
-
-
-
-
-
-
-
 
 
 
