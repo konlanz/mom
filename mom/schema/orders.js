@@ -15,14 +15,14 @@ var Order=new Schema({
         
     },
     phone:{
-        type:Number
-        
-    },
-    location:{
         type:String
         
     },
-    ghp:{
+    Hostel:{
+        type:String
+        
+    },
+    Room:{
         type:String
         
     },
