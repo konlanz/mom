@@ -5,7 +5,115 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sign up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/main.css" /><!DOCTYPE html>
+<html amp lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Mom's Breakfast</title>
+
+		<title>Mom's Breakfast</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/main.css" />
+		
+ 		
+    </head>
+	<body>
+		<header>
+			<ul class="headli">
+				<li><a href="/">Home</a></li>
+				<div class="rig">
+					<li><a href="/logout">Empty Cart</a></li>
+					
+				</div>
+			</ul>
+		</header>
+<div class="spacex"></div>
+
+		
+<div class="container">
+	<h1><strong>Order Sumary</strong></h1>
+	
+	<strong>PRODUCT</strong>:<div class="pduct">
+		<%=data.mprod%>,<%=data.sprod%>
+	
+</div><br>
+<strong>TOTAL</strong>
+:<div class="pduct">
+	<%=data.total%>
+</div>				
+</div>				
+
+
+			
+
+<form method="POST" action="/checkout">	
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+						
+					<div class="col-md-7">
+						<!-- Billing Details -->
+						<div class="billing-details">
+							<div class="section-title">
+								<h3 class="title">Billing address</h3>
+								<h4><%-messages()%></h4>
+							
+							</div>
+							<div class="form-group">
+								<input class="input" required type="text" name="name" placeholder="Full Name" autocomplete="additional-name">
+							</div>
+							
+							<div class="form-group">
+								<input class="input" required type="text" name="hostel" placeholder="Hostel" autocomplete="home">
+							</div>
+							<div class="form-group">
+								<input class="input" required type="text" name="room" placeholder="Room Number" autocomplete="address-level2">
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="phone" placeholder="Telephone" autocomplete="mobile">
+							</div>
+							
+						</div>
+						<!-- /Billing Details -->
+
+						
+						
+					</div>
+
+					<!-- Order Details -->
+					<div class="col-md-5 order-details">
+						
+					<input type="submit" value="checkout" class="btn" />
+					</div>
+					<!-- /Order Details -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+		</form>
+
+		
+		<div class="container" class="copyright">
+			<small>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This is site is created by the mums Breakfast IT Team </small>	
+		</div>
+
+		<!-- jQuery Plugins -->
+		<script src="javascripts/jquery.min.js"></script>
+		<script src="javascripts/bootstrap.min.js"></script>
+		<script src="javascripts/main.js"></script>
+
+	</body>
+</html>
+
     <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/boostrap.css" />
 </head>
 <body>
