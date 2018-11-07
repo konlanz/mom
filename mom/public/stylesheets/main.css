@@ -220,3 +220,21 @@ a{
 .toga{
     margin: auto;
 }
+.spacex{
+ padding: 30px;
+}
+.pduct{
+    border: 1px solid crimson;
+    text-align: center;
+}
+.copyright{
+    margin: 0, 0, 0, 0;
+ text-align: center;
+ margin-bottom: 0px;
+ margin-top: 10px;
+ padding-bottom: 0px;
+}
+small{
+    margin-bottom: 0%;
+    margin-top: 10px;
+}
