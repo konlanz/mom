@@ -15,7 +15,7 @@ var Order = require('../schema/orders');
 
 
 /* GET users listing. */
-router.get('/', secur, function(req, res, next) {
+router.get('/',  (req, res, next)=> {
   var cart = req.session.cart;
   var displayCart = {items:[], total:0}
   var total=0;
@@ -75,6 +75,8 @@ router.post('/add', function(req, res){
   
  
 });
+
+
 
 router.post('/adduser', (req, res, next)=>{
   var name=req.body.name;
@@ -144,10 +146,6 @@ router.post('/palaceorder', (req, res)=>{
   var tot = req.body.tot;
   var sqty = req.body.sqty;
   var mqty = req.body.mqty;
-  var user = req.session.user;
-  var uname = user.name;
-  var loc = user.location;
-  var  phone = user.phone;
   var date = new Date();
   var dete = date.getDate();
   var month = date.getMonth()+1;
@@ -155,9 +153,6 @@ router.post('/palaceorder', (req, res)=>{
 
 
   var oprod ={
-    name:uname,
-    phone: phone,
-    location:loc,
     sprod:sprod,
     sqty:sqty,
     mprod:mprod,
@@ -167,10 +162,9 @@ router.post('/palaceorder', (req, res)=>{
     Month:month,
     Year:year
   }
-  var dam = new Order(oprod).save();
-  delete req.session.cart;
-  delete req.session.mainp;
-  res.redirect('/user');
+
+  req.session.checkout = oprod;
+  res.redirect('/signup');
 
 });
 module.exports = router;
