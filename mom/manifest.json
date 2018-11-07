@@ -1,0 +1,24 @@
+{
+    "name": "Mums Breakfast",
+    "short_name":"Mum's",
+    "start_url":"/",
+    "display":"standalone",
+    "orientaion":"portrait",
+    "background_color":"crimson",
+    "theme_color":"crimson",
+    "icons":[
+        {
+            "src":"/images/logo.jpg",
+            "size":"96x99",
+            "type":"image/jpg"
+
+        },
+        {
+            "src":"/images/l3.png",
+            "size":"144x144",
+            "type":"image/png"
+
+        }
+    ]
+
+}
