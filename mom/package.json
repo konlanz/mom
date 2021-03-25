@@ -22,14 +22,14 @@
     "helmet": "3.23.3",
     "http-errors": "~1.8.0",
     "mongodb": "3.6.4",
-    "mongoose": "5.11.17",
+    "mongoose": "5.12.2",
     "morgan": "~1.10.0",
     "multer": "1.4.2",
     "nodemon": "2.0.0",
     "npm": "^7.0.0",
     "safe-regex": "^1.1.0",
     "save": "^2.4.0",
-    "snyk": "^1.458.0"
+    "snyk": "^1.465.0"
   },
   "snyk": true
 }
